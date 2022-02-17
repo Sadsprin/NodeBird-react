@@ -1,6 +1,7 @@
 # 1. nextjs concept
 
 ### 1.0.1. 서버와 클라이언트 
+
           /blog      1->     /posts    2->     Query   3->
 browser    <=>      front             back               database
             <-                <-                <-        result
