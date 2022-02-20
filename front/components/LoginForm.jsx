@@ -7,6 +7,13 @@ import PropTypes from "prop-types"
 const ButtonWrapper = styled.div`
   margin-top: 10px;
 `
+const ButtonSignUp = styled(Button)`
+  margin-left: 10px;
+`
+
+const FormWrapper = styled(Form)`
+  padding: 10px;
+`
 
 const LoginForm = ({ setIsLoggedIn }) => {
   const [id, setId] = useState("")
@@ -28,7 +35,7 @@ const LoginForm = ({ setIsLoggedIn }) => {
 
   return (
     <>
-      <Form onFinish={onSubmitForm}>
+      <FormWrapper onFinish={onSubmitForm}>
         <div>
           <label htmlFor="user-id">아이디</label>
           <br />
@@ -53,12 +60,10 @@ const LoginForm = ({ setIsLoggedIn }) => {
             로그인
           </Button>
           <Link href="/signup">
-            <Button>
-              <a>회원가입</a>
-            </Button>
+            <ButtonSignUp>회원가입</ButtonSignUp>
           </Link>
         </ButtonWrapper>
-      </Form>
+      </FormWrapper>
     </>
   )
 }

@@ -66,12 +66,7 @@ const AppLayout = ({ children }) => {
         col의 그리드는 24가 100%이며 숫자에 따라 %가 달라짐
       */}
       <Row gutter={8}>
-        <Col xs={24} sm={6} md={6}></Col>
-        <Col xs={24} sm={6} md={6}>
-          {children}
-        </Col>
-        <Col xs={24} sm={6} md={6} offset={6}>
-          {/* 
+        {/* 
             target property
                 _blank: 새로운 윈도우나 탭에서 오픈
                 _self: 현재 프레임에서 오픈
@@ -84,14 +79,18 @@ const AppLayout = ({ children }) => {
             되고 있으면 퍼포먼스가 떨어질 수 있다
 
             rel property
-                noopener: window.opener를 이용하여 링크를 건 페이지를 참조 할 수 없게 됩니다.
-                noreferrer: 다른 페이지로 이동할 때, 링크를 건 페이지의 주소 등의 브라우저가 Referer 헤더로
+                noopener: window.opener를 이용하여 링크를 건 페이지를 참조 할 수 없게 됩니다. => 누가 열었는지
+                noreferrer: 다른 페이지로 이동할 때, 링크를 건 페이지의 주소 등의 브라우저가 Referer 헤더로 => 어떤 페이지에서 열었는지
                 서 송신되지 않습니다.
                         */}
+        <Col xs={24} sm={6} md={6}>
           {isLoggedIn ? <UserProfile setIsLoggedIn={setIsLoggedIn} /> : <LoginForm setIsLoggedIn={setIsLoggedIn} />}
         </Col>
+        <Col xs={24} sm={12} md={12}>
+          {children}
+        </Col>
+        <Col xs={24} sm={6} md={6} offset={6}></Col>
       </Row>
-      {children}
     </div>
   )
 }
